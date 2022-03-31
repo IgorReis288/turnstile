@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class AdmService {
@@ -17,8 +18,23 @@ public class AdmService {
         return accountFacade.getAccountActive(id);
     }
 
+    public Client getClientByAccountReference(UUID accountReference) {
+        return accountFacade.getClientByAccountActive(accountReference);
+    }
+
     public List<Client> getAllClient() {
         return accountFacade.findAllAccountActiveById();
     }
 
+    public Client insertClient(Client client){
+        return accountFacade.insertAccount(client);
+    }
+
+    public Client updateClient(Client client){
+        return accountFacade.insertAccount(client);
+    }
+
+    public void deleteClient(UUID accountReference){
+        accountFacade.deleteAccount(getClientByAccountReference(accountReference));
+    }
 }

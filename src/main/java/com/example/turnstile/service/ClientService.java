@@ -34,8 +34,8 @@ public class ClientService {
         return client.save(c);
     }
 
-    public void deleteClient(Long id){
-        client.delete(client.findClientActiveById(id).orElse(new Client()));
+    public void deleteClient(Client c){
+        client.delete(c);
     }
 
     public Client updateClient(Client c){

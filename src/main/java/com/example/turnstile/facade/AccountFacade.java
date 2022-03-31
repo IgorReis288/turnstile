@@ -24,6 +24,10 @@ public class AccountFacade {
         return client.getActive() ? client.getPermission() : "";
     }
 
+    public Client getClientByAccountActive(UUID accountReference) {
+        return clientService.findClientByAccountReference(accountReference);
+    }
+
     public void setCheckInAccountInBuilding(UUID accountReference, BuildingEnum buildingEnum) {
         trafficService.checkInAccount(accountReference, buildingEnum);
     }
@@ -43,8 +47,8 @@ public class AccountFacade {
         return clientService.insertClient(c);
     }
 
-    public void deleteAccount(Long id){
-        clientService.deleteClient(id);
+    public void deleteAccount(Client c){
+        clientService.deleteClient(c);
     }
 
     public Client updateAccount(Client c){
