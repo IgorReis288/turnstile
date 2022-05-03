@@ -16,6 +16,7 @@ public class Client extends AbstractDomain {
     private Long id;
     private UUID accountReference = randomUUID();
     private String name;
+    private String document;
     private String fullAddress;
     private String age;
     private String permission;
